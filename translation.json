@@ -1,0 +1,40 @@
+{
+    "data": {
+        "Title": {
+            "en": "Data",
+            "de": "Data"
+        }
+    },
+    "cnnfile": {
+        "Title": {
+            "en": "CNN",
+            "de": "CNN"
+        },
+        "Brief": {
+            "en": "CNN",
+            "de": "CNN"
+        },
+        "Description": {
+            "en": "Install/delete all CNNs.\n\rCNN (size) [ ROI name ] active\n\r",
+            "de": "CNN installieren/alle löschen.\n\rCNN (Größe) [ ROI Name ] aktiv\n\r"
+        }
+    },
+    "createresultimage": {
+        "Title": {
+            "en": "Create result image",
+            "de": "Ergebnisbild erstellen"
+        }
+    },
+    "cnnconfig": {
+        "Title": {
+            "en": "CNN/ROI config",
+            "de": "CNN/ROI Konfiguration"
+        }
+    },
+    "resultimage": {
+        "Title": {
+            "en": "Resultimage",
+            "de": "Ergebnisbild"
+        }
+    }
+}

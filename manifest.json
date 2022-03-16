@@ -1,0 +1,24 @@
+{
+    "Name": "multicnnclassifier",
+    "Manufacturer": "IDS Imaging Development Systems GmbH",
+    "Version": "1.2.0",
+    "Type": "VApp",
+    "Language":
+    {
+        "Title":
+        {
+            "en": "Multi CNN Classifier",
+            "de": "Multi CNN Classifier"
+        },
+        "Brief":
+        {
+            "en": "Classifies objects in ROIs with individual CNNs",
+            "de": "Klassifiziert Objekte in ROIs mit individuellen CNNs"
+        },
+        "Description":
+        {
+            "en": "Enables classification of objects in multiple ROIs with individual CNNs.",
+            "de": "Ermöglicht die Klassifizierung von Objekten in mehreren ROIs mit individuellen CNNs."
+        }
+    }
+}
