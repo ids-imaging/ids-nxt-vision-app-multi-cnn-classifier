@@ -61,9 +61,13 @@ void MyEngine::handleResult(std::shared_ptr<IDS::NXT::Vision> vision) {
             const auto& cnnData = cnnDataStruct.cnnData;
             const std::unique_ptr<IDS::NXT::CNNv2::MultiBuffer>& cnnResult = thisCnnResult;
 
+            // Get the output buffers of the CNN
+            const auto& allBuffers = cnnResult->allBuffers();
+
             // Check if result is suited for classification
-            if (cnnData.inferenceType() != CnnData::InferenceType::Classification) {
-                throw std::runtime_error("CNN is not suited for detection");
+            if (cnnData.inferenceType() != CnnData::InferenceType::Classification || allBuffers.size() != 1) {
+                throw std::runtime_error(
+                    "Error: CNN is not suited for classification or output buffer set is not specified correctly.");
             }
 
             // Convert result to double and map corresponding class;
@@ -72,7 +76,7 @@ void MyEngine::handleResult(std::shared_ptr<IDS::NXT::Vision> vision) {
             auto expSum = 0.;
 
             // Classification CNNs have only one output Buffer
-            auto currentCnnOutputBuffer = cnnResult->allBuffers().at(0);
+            auto currentCnnOutputBuffer = allBuffers.at(0);
             for (auto cnt = 0; cnt < cnnData.classes().size(); cnt++) {
                 const auto currentClass = cnnData.classes().at(cnt);
                 // Apply exponential function for softmax calculation;
@@ -110,6 +114,7 @@ void MyEngine::handleResult(std::shared_ptr<IDS::NXT::Vision> vision) {
         }
     } catch (const std::runtime_error& e) {
         qCCritical(lc) << "Error handling result: " << e.what();
+        _resultCollection.addResult("data", e.what(), QStringLiteral("Content1"), vision->image());
     }
     // signal that all parts of the image are finished
     _resultCollection.finishedAllParts(obj->image());
