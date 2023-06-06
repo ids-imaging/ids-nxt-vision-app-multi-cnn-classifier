@@ -23,7 +23,7 @@ DEFINES +=
 DISTFILES += README.md
 
 #Mandatory params
-NXT_SDK = 2.4.0
+NXT_SDK = 3.1.0
 AVATAR = avatar.png
 MANIFEST = manifest.json
 TRANSLATION = translation.json
