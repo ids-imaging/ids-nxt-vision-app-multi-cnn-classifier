@@ -21,7 +21,9 @@ CnnRoiHandler::CnnRoiHandler()
     _roiManager.setMaxROIs(CnnRoiConfig::getMaxRois());
     _cnnRoiConfigFile.setFilter({"Json |*.json"});
     _cnnRoiConfigFile.setDeletable(true);
-    _cnnFile.setFilter({"IDS CNN File |*.cnn"});
+    QList<TranslatedText> filtercnn;
+    filtercnn.append("IDS NXT rio/rome classification model |*.rcla; *.cnn");
+    _cnnFile.setFilter(filtercnn);
     _cnnFile.setDeletable(true);
     // Connect framework signals to local slot
     connect(&CnnManager::getInstance(), &CnnManager::cnnChanged, this, &CnnRoiHandler::cnnChanged);
